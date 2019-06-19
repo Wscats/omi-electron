@@ -1,4 +1,4 @@
-<template name="add-dir">
+<template name="add-folder">
     <div id="container">
         {this.data.lists.map((item,index)=>{
             return <div>{item.title}</div>

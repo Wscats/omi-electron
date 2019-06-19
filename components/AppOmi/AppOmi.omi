@@ -1,0 +1,18 @@
+<template name="app-omi">
+    <div>
+        <add-folder/>
+    </div>
+</template>
+<script type="module">
+require('../AddFolder/AddFolder.js')
+export default class {
+    install() {
+        this.data = {
+            title: "omi"
+        }
+    }
+}
+</script>
+<style>
+
+</style>

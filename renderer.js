@@ -1,14 +1,9 @@
 // This file is required by the index.html file and will
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
-const { WeElement, define, html, h, render } = require('omi');
-require('./components/addDir/addDir')
-render(
-    html`
-      <add-dir />
-    `,
-    "body"
-);
+const { WeElement, define, h, render } = require('omi');
+require('./components/AppOmi/AppOmi')
+render(h('app-omi'),'body');
 const chokidar = require('chokidar');
 
 const watcher = chokidar.watch('./test', {
