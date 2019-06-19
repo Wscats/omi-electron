@@ -1,0 +1,37 @@
+<template name="add-dir">
+    <div id="container">
+        {this.data.lists.map((item,index)=>{
+            return <div>{item.title}</div>
+        })}
+    </div>
+</template>
+<script type="module">
+export default class {
+    install() {
+        this.data = {
+            lists: [
+                {title: '监听目录'},
+                {title: '新建组件'}
+            ]
+        }
+    }
+}
+</script>
+<style lang="scss">
+    *{
+        margin:0;
+        padding:0;
+    }
+    #container{
+        display:flex;
+        div{
+            background-color:#58bc58;
+            color:white;
+            flex:1;
+            text-align:center;
+            height:50px;
+            line-height:50px;
+            border:1px solid #666666;
+        }
+    }
+</style>
