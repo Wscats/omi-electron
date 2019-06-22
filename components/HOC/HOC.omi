@@ -1,5 +1,12 @@
-<template>
-    <div>
-        
-    </div>
+<template name="omi-hoc">
+    <add-folder />
 </template>
+<script type="module">
+export default class {
+    install() {
+        this.data = {
+            title: "omi"
+        }
+    }
+}
+</script>

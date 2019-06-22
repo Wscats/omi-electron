@@ -1,18 +1,22 @@
 <template name="app-omi">
     <div>
         <add-folder/>
+        {h(this.data.title)}
     </div>
 </template>
 <script type="module">
 require('../AddFolder/AddFolder.js')
+require('../HOC/HOC.js')
 export default class {
     install() {
         this.data = {
-            title: "omi"
+            title: "omi-hoc"
         }
     }
 }
 </script>
 <style>
-
+p{
+    color: red;
+}
 </style>

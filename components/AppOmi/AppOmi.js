@@ -1,18 +1,22 @@
-var _class, _temp;
-
 require("../AddFolder/AddFolder.js");
 
-const appOmi = ((_temp = _class = class appOmi extends WeElement {
+require("../HOC/HOC.js");
+
+class appOmi extends WeElement {
   render() {
-    return h("div", null, h("add-folder", null));
+    return h("div", null, h("add-folder", null), h(this.data.title));
   }
 
   install() {
     this.data = {
-      title: "omi"
+      title: "omi-hoc"
     };
   }
-}),
-(_class.css = `null`),
-_temp);
+}
+
+appOmi.css = `
+p{
+    color: red;
+}
+`;
 define("app-omi", appOmi);

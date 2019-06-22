@@ -8,12 +8,28 @@
   <body>
     <script src="https://tencent.github.io/omi/packages/omi/dist/omi.js"></script>
     <script>
-      const { WeElement, html, h, render } = omi;
-      export default class extends WeElement {
+      const { WeElement, define, html, h, render } = omi;
+
+      class omiHoc extends WeElement {
         render() {
-          return h("div", null);
+          return h("add-folder", null);
+        }
+
+        install() {
+          this.data = {
+            title: "omi"
+          };
         }
       }
+
+      omiHoc.css = ``;
+      define("omi-hoc", omiHoc);
+      render(
+        html`
+          <omi-hoc />
+        `,
+        "body"
+      );
     </script>
   </body>
 </html>
