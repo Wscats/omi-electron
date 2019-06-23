@@ -4,7 +4,13 @@ require("../HOC/HOC.js");
 
 class appOmi extends WeElement {
   render() {
-    return h("div", null, h("add-folder", null), h(this.data.title));
+    return h(
+      "div",
+      null,
+      h("add-folder", null),
+      h(this.data.title),
+      h("omi-hoc", null)
+    );
   }
 
   install() {

@@ -2,6 +2,7 @@
     <div>
         <add-folder/>
         {h(this.data.title)}
+        {<omi-hoc/>}
     </div>
 </template>
 <script type="module">
