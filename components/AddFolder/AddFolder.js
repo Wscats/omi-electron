@@ -1,10 +1,16 @@
-var _class, _temp;
-
 const fs = require("fs");
 
 const chokidar = require("chokidar");
 
-const addFolder = ((_temp = _class = class addFolder extends WeElement {
+class addFolder extends WeElement {
+  constructor(...args) {
+    super(...args);
+
+    this.watchFolderRef = e => {
+      this.input = e;
+    };
+  }
+
   render() {
     return h(
       "div",
@@ -26,8 +32,9 @@ const addFolder = ((_temp = _class = class addFolder extends WeElement {
       ),
       h("input", {
         type: "file",
+        ref: this.watchFolderRef,
         webkitdirectory: true,
-        onChange: this.getDirectory
+        onChange: this.getDirectory.bind(this)
       })
     );
   }
@@ -43,11 +50,24 @@ const addFolder = ((_temp = _class = class addFolder extends WeElement {
         }
       ]
     };
-    const watcher = chokidar.watch("./tests", {
+  }
+
+  handle(index) {
+    switch (index) {
+      case 0:
+        this.input.click();
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  watchFolder({ path }) {
+    const watcher = chokidar.watch(path, {
       ignored: /[\/\\]\./,
       persistent: true
     });
-    console.log(watcher);
     const log = console.log.bind(console);
     watcher
       .on("add", function(path) {
@@ -76,28 +96,14 @@ const addFolder = ((_temp = _class = class addFolder extends WeElement {
       });
   }
 
-  handle(index) {
-    console.log(index);
-
-    switch (index) {
-      case 0:
-        this.watchFolder();
-        break;
-
-      default:
-        break;
-    }
-  }
-
-  watchFolder() {
-    console.log(fs);
-  }
-
   getDirectory(e) {
-    console.log(e.target.value);
+    const path = e.target.files[0].path;
+    this.watchFolder({
+      path
+    });
+    console.log(e.target.files[0].path);
   }
-}),
-(_class.css = `*{margin:0;padding:0}#container{display:flex}#container div{background-color:#58bc58;color:white;flex:1;text-align:center;height:50px;line-height:50px;border:1px solid #666666}
-`),
-_temp);
+}
+
+addFolder.css = `*{margin:0;padding:0}#container{display:flex}#container div{background-color:#58bc58;color:white;flex:1;text-align:center;height:50px;line-height:50px;border:1px solid #666666}input{display:none}`;
 define("add-folder", addFolder);

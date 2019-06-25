@@ -5,7 +5,7 @@
             return <div onClick={ this.handle.bind(this,index) }>{item.title}</div>
             })}
         </div>
-        <input type="file" webkitdirectory onChange={this.getDirectory} />
+        <input type="file" ref={this.watchFolderRef} webkitdirectory onChange={this.getDirectory.bind(this)} />
     </div>
 </template>
 <script type="module">
@@ -19,12 +19,28 @@
                     { title: '新建组件' }
                 ]
             }
-            const watcher = chokidar.watch('./tests', {
+
+        }
+        handle(index) {
+            // console.log(index)
+            switch (index) {
+                case 0:
+                    this.input.click()
+                    break;
+                default:
+                    break;
+            }
+        }
+        watchFolder({
+            path
+        }) {
+            // console.log(fs)
+            // console.log(this.input.value)
+            const watcher = chokidar.watch(path, {
                 ignored: /[\/\\]\./, persistent: true
             });
-            console.log(watcher)
+            // console.log(watcher)
             const log = console.log.bind(console);
-
             watcher
                 .on('add', function (path) { log('File', path, 'has been added'); })
                 .on('addDir', function (path) { log('Directory', path, 'has been added'); })
@@ -33,23 +49,18 @@
                 .on('unlinkDir', function (path) { log('Directory', path, 'has been removed'); })
                 .on('error', function (error) { log('Error happened', error); })
                 .on('ready', function () { log('Initial scan complete. Ready for changes.'); })
-                .on('raw', function (event, path, details) { log('Raw event info:', event, path, details); })
+                .on('raw', function (event, path, details) {
+                    log('Raw event info:', event, path, details);
+                })
         }
-        handle(index) {
-            console.log(index)
-            switch (index) {
-                case 0:
-                    this.watchFolder();
-                    break;
-                default:
-                    break;
-            }
-        }
-        watchFolder() {
-            console.log(fs)
-        }
-        getDirectory(e){
-            console.log(e.target.value)
+        watchFolderRef = e => { this.input = e }
+        getDirectory(e) {
+            const path = e.target.files[0].path;
+            this.watchFolder({
+                path
+            });
+            // 真实路径在path路径上
+            console.log(e.target.files[0].path)
         }
     }
 </script>
@@ -71,5 +82,9 @@
             line-height: 50px;
             border: 1px solid #666666;
         }
+    }
+
+    input {
+        display: none;
     }
 </style>
