@@ -1,6 +1,10 @@
 const fs = require("fs");
 
+const omil = require("omil");
+
 const chokidar = require("chokidar");
+
+const prettier = require("prettier");
 
 class addFolder extends WeElement {
   constructor(...args) {
@@ -91,9 +95,63 @@ class addFolder extends WeElement {
       .on("ready", function() {
         log("Initial scan complete. Ready for changes.");
       })
-      .on("raw", function(event, path, details) {
-        log("Raw event info:", event, path, details);
-      });
+      .on(
+        "raw",
+        function(event, path, details) {
+          log("Raw event info:", event, path, details);
+          this.convertFile({
+            event,
+            path,
+            details
+          });
+        }.bind(this)
+      );
+  }
+
+  convertFile({ event, path, details }) {
+    console.log({
+      event,
+      path,
+      details
+    });
+
+    const _self = this;
+
+    const type = details.type;
+    const suffix = this.fileType(path);
+    const source = this.readFileContext(path);
+
+    if (type === "file") {
+      switch (suffix) {
+        case ".omi":
+        case ".eno":
+          omil({
+            type: "extension",
+            options: null,
+            source,
+
+            callback(data) {
+              console.log(data, this);
+
+              _self.writeJsFileContext(path, data);
+            }
+          });
+
+        default:
+          break;
+      }
+    }
+  }
+
+  fileType(filename) {
+    const index1 = filename.lastIndexOf(".");
+    const index2 = filename.length;
+    const type = filename.substring(index1, index2);
+    return type;
+  }
+
+  readFileContext(path) {
+    return fs.readFileSync(path).toString();
   }
 
   getDirectory(e) {
@@ -102,6 +160,21 @@ class addFolder extends WeElement {
       path
     });
     console.log(e.target.files[0].path);
+  }
+
+  writeJsFileContext(path, data) {
+    path = this.handleFilePath(path, 4);
+    console.log(path);
+    const code = prettier.format(data, {
+      parser: "babel"
+    });
+    fs.writeFile(`${path}.js`, code, () => {
+      console.log("write success");
+    });
+  }
+
+  handleFilePath(path, length) {
+    return (path = path.substring(0, path.length - length));
   }
 }
 

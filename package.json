@@ -21,6 +21,9 @@
     "electron": "^5.0.2"
   },
   "dependencies": {
-    "omi": "^6.6.5"
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "omi": "^6.6.5",
+    "omil": "^1.6.7",
+    "prettier": "^1.18.2"
   }
 }
