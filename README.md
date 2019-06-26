@@ -29,13 +29,13 @@
 
 # To Use
 
-最新版本下载: [Win版本](https://pan.baidu.com/s/1n6fko0ZXl5E6X2nK5Xe6SA)
+最新版本下载: [Win版本](https://pan.baidu.com/s/1n6fko0ZXl5E6X2nK5Xe6SA) | [源文件版本](https://github.com/Wscats/omi-electron/releases/tag/1.3)
 
-最新版本下载: [Mac版本](https://pan.baidu.com/s/1eCZlzi9eAhDriECclAzfoQ)
+最新版本下载: [Mac版本](https://pan.baidu.com/s/1eCZlzi9eAhDriECclAzfoQ) | [源文件版本](https://github.com/Wscats/omi-electron/releases/tag/1.2)
 
-The latest stable download: [Win Version](https://pan.baidu.com/s/1n6fko0ZXl5E6X2nK5Xe6SA)
+The latest stable download: [Win Version](https://pan.baidu.com/s/1n6fko0ZXl5E6X2nK5Xe6SA) | [Source Code](https://github.com/Wscats/omi-electron/releases/tag/1.3)
 
-The latest stable download: [Mac Version](https://pan.baidu.com/s/1eCZlzi9eAhDriECclAzfoQ)
+The latest stable download: [Mac Version](https://pan.baidu.com/s/1eCZlzi9eAhDriECclAzfoQ) | [Source Code](https://github.com/Wscats/omi-electron/releases/tag/1.2)
 
 将下载的压缩文件解压并并安装到系统中，双击应用图标启动应用，点击应用中间的绿色按钮，指定您的Omi项目的开发目录(一般是`src`文件夹下)，切换到你的编辑工具并在您项目的开发目录下创建或者编辑`.omi`后缀的文件，该文件会自动编译为`.js`文件
 
