@@ -1,6 +1,6 @@
 {
   "name": "omie",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
@@ -17,7 +17,8 @@
     "omie",
     "omil",
     "omi-snippets",
-    "omi-electron"
+    "omi-electron",
+    "eno"
   ],
   "author": "Eno Yao",
   "license": "MIT",
