@@ -27,8 +27,23 @@
 
 </div>
 
+# To Use
+
+最新版本下载: [Win版本](https://pan.baidu.com/s/1z5KJs27uBj6BaUzq_s40-Q)
+
+最新版本下载: [Mac版本](https://pan.baidu.com/s/1ksbKX5fIFJ4TbqDC0ap2bw)
+
+The latest stable download: [Win Version](https://pan.baidu.com/s/1z5KJs27uBj6BaUzq_s40-Q)
+
+The latest stable download: [Mac Version](https://pan.baidu.com/s/1ksbKX5fIFJ4TbqDC0ap2bw)
+
+将下载的压缩文件解压并并安装到系统中，双击应用图标启动应用，点击应用中间的绿色按钮，指定您的Omi项目的开发目录(一般是`src`文件夹下)，切换到你的编辑工具并在您项目的开发目录下创建或者编辑`.omi`后缀的文件，该文件会自动编译为`.js`文件
+
+Unzip the downloaded compressed file and install it into the system. Double-click the application icon to start the application, click the green button in the middle of the application, select the development directory of your Omi project (usually under the `src` folder), switch to your IDE, and create or edit the file with the suffix of `.omi` under the development directory of your project. The file will be automatically compiled into `.js` file.
+
 <img src="assets/png/screenshot.png" />
 
+# About Electron
 **Clone and run for a quick way to see Electron in action.**
 
 This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
@@ -43,9 +58,10 @@ A basic Electron application needs just these files:
 
 You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
 
-## To Use
 
-### 1. The first method:
+# To Develop
+
+## 1. The first method:
 ```bash
 # Install this module from npm
 npm install omie
@@ -57,7 +73,7 @@ npm install
 npm start
 ```
 
-### 2. The second method:
+## 2. The second method:
 
 To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
@@ -74,7 +90,7 @@ npm start
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
-## Resources for Learning Electron
+# Resources for Learning Electron
 
 - [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
 - [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
@@ -83,6 +99,6 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 - [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
 - [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
 
-## License
+# License
 
 [MIT (Public Domain)](LICENSE.md)
