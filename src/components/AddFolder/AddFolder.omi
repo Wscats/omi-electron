@@ -1,10 +1,10 @@
 <template name="add-folder">
-    <div>
-        <div id="container">
-            {this.data.lists.map((item,index)=>{
-            return <div onClick={ this.handle.bind(this,index) }>{item.title}</div>
-            })}
-        </div>
+    <div class="app-omil">
+        {this.data.lists.map((item,index)=>{
+        return (<button onClick={this.handle.bind(this,index)} class="weui-btn weui-btn_primary"
+            style="width: 250px;">{item.title}</button>)
+        })
+        }
         <input type="file" ref={this.watchFolderRef} webkitdirectory onChange={this.getDirectory.bind(this)} />
     </div>
 </template>
@@ -17,11 +17,11 @@
         install() {
             this.data = {
                 lists: [
-                    { title: '监听目录' },
-                    { title: '新建组件' }
-                ]
+                    { title: 'Listen Folder/监听文件夹' },
+                    // { title: '新建组件' }
+                ],
+                title: 'Install Omi Snippets!'
             }
-
         }
         handle(index) {
             // console.log(index)
@@ -36,12 +36,9 @@
         watchFolder({
             path
         }) {
-            // console.log(fs)
-            // console.log(this.input.value)
             const watcher = chokidar.watch(path, {
                 ignored: /[\/\\]\./, persistent: true
             });
-            // console.log(watcher)
             const log = console.log.bind(console);
             watcher
                 .on('add', function (path) { log('File', path, 'has been added'); })
@@ -61,27 +58,21 @@
         convertFile({
             event, path, details
         }) {
-            console.log({
-                event, path, details
-            })
             const _self = this;
             const type = details.type;
             const suffix = this.fileType(path);
             const source = this.readFileContext(path);
-            
+
             if (type === 'file') {
                 switch (suffix) {
                     case '.omi':
                     case '.eno':
-                        // console.log(fileNameWithoutSuffixArray);
-                        // console.log(omil);
-                        // convert jsx file
                         omil({
                             type: 'extension',
                             options: null,
                             source,
                             callback(data) {
-                                console.log(data,this)
+                                console.log(data, this)
                                 // create jsx file and write component jsx 
                                 _self.writeJsFileContext(path, data);
                             }
@@ -107,12 +98,9 @@
             this.watchFolder({
                 path
             });
-            // 真实路径在path路径上
-            console.log(e.target.files[0].path)
         }
         writeJsFileContext(path, data) {
             path = this.handleFilePath(path, 4);
-            console.log(path);
             const code = prettier.format(data, {
                 parser: "babel",
             });
@@ -123,26 +111,57 @@
         handleFilePath(path, length) {
             return path = path.substring(0, path.length - length);
         }
+        omiSnippets() {
+            window.open('https://marketplace.visualstudio.com/items?itemName=Wscats.omi-snippets')
+        }
     }
 </script>
 <style lang="scss">
-    * {
-        margin: 0;
-        padding: 0;
+    .app-omil {
+        margin-top: 20px;
     }
 
-    #container {
-        display: flex;
+    .weui-btn:after {
+        content: " ";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
 
-        div {
-            background-color: #58bc58;
-            color: white;
-            flex: 1;
-            text-align: center;
-            height: 50px;
-            line-height: 50px;
-            border: 1px solid #666666;
-        }
+    .weui-btn {
+        position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 14px;
+        padding-right: 14px;
+        box-sizing: border-box;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+        color: #FFFFFF;
+        line-height: 2.55555556;
+        border-radius: 3px;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        overflow: hidden;
+        border-width: 0;
+        width: 100%;
+        border-width: 0;
+        outline: 0;
+        -webkit-appearance: none;
+    }
+
+    button {
+        background-color: #58bc58;
+        cursor: pointer;
     }
 
     input {

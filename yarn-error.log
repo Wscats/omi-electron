@@ -1,0 +1,66 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn package:win
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/3.7/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin
+
+Yarn version: 
+  1.12.1
+
+Node version: 
+  10.14.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/eno/Documents/Wscats/1000phone/1903/omi-electron/Omiw/package.json: Unexpected token } in JSON at position 1151
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1166:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:92:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:103:13
+
+npm manifest: 
+  {
+    "name": "Omie",
+    "version": "1.0.1",
+    "description": "A minimal Electron application",
+    "main": "main.js",
+    "scripts": {
+      "start": "electron .",
+      "package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out --icon=assets/app-icon/mac/app.icns --osx-sign.identity='Developer ID Application: GitHub' --extend-info=assets/mac/info.plist",
+      "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=assets/app-icon/win/app.ico",
+      "package:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --out=out"
+    },
+    "repository": "https://github.com/electron/electron-quick-start",
+    "keywords": [
+      "Electron",
+      "quick",
+      "start",
+      "tutorial",
+      "demo"
+    ],
+    "author": "GitHub",
+    "license": "CC0-1.0",
+    "devDependencies": {
+      "electron": "^5.0.2"
+    },
+    "dependencies": {
+      "omi": "^6.6.5",
+      "omil": "^1.6.7",
+      "omiu": "^0.1.1",
+      "prettier": "^1.18.2",
+      "@babel/plugin-proposal-class-properties": "^7.4.4",
+      "@babel/preset-env": "^7.4.5",
+      "@babel/types": "^7.4.4",
+      "babel-loader": "^8.0.6",
+      "chokidar": "^3.0.1",
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

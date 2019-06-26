@@ -1,0 +1,27 @@
+<template name="app-intro">
+    <div>
+        <p class="app-intro">
+            To get started, click the green button above and listen your development folder where you need to write .omi or .eno documents, edit src/<code>*.omi</code> or <code>*.eno</code> and save, a JS file will be created in the same directory.
+        </p>
+        <p class="app-intro">
+            在开始前，我们需要点击上方绿色按钮来监听您的开发文件夹，并添加或修改后缀为 src/<code>*.omi</code> or <code>*.eno</code> 的文件，保存之后会在同级目录生成一份被处理的JS文件。
+        </p>
+        <a href="https://github.com/Wscats" target="_blank">Author: @Eno Yao</a>
+    </div>
+</template>
+<script type="module">
+    export default class {
+        static css = `code{color: ${Math.random() > 0.5 ? 'red' : 'blue'}}`
+    }
+</script>
+<style lang="scss">
+    .app-intro {
+        font-size: large;
+    }
+    p{
+        padding: 0 20px;
+    }
+    a{
+        text-decoration : none;
+    }
+</style>

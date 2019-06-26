@@ -18,22 +18,20 @@ class addFolder extends WeElement {
   render() {
     return h(
       "div",
-      null,
-      h(
-        "div",
-        {
-          id: "container"
-        },
-        this.data.lists.map((item, index) => {
-          return h(
-            "div",
-            {
-              onClick: this.handle.bind(this, index)
-            },
-            item.title
-          );
-        })
-      ),
+      {
+        class: "app-omil"
+      },
+      this.data.lists.map((item, index) => {
+        return h(
+          "button",
+          {
+            onClick: this.handle.bind(this, index),
+            class: "weui-btn weui-btn_primary",
+            style: "width: 250px;"
+          },
+          item.title
+        );
+      }),
       h("input", {
         type: "file",
         ref: this.watchFolderRef,
@@ -47,12 +45,10 @@ class addFolder extends WeElement {
     this.data = {
       lists: [
         {
-          title: "监听目录"
-        },
-        {
-          title: "新建组件"
+          title: "Listen Folder/监听文件夹"
         }
-      ]
+      ],
+      title: "Install Omi Snippets!"
     };
   }
 
@@ -109,12 +105,6 @@ class addFolder extends WeElement {
   }
 
   convertFile({ event, path, details }) {
-    console.log({
-      event,
-      path,
-      details
-    });
-
     const _self = this;
 
     const type = details.type;
@@ -159,12 +149,10 @@ class addFolder extends WeElement {
     this.watchFolder({
       path
     });
-    console.log(e.target.files[0].path);
   }
 
   writeJsFileContext(path, data) {
     path = this.handleFilePath(path, 4);
-    console.log(path);
     const code = prettier.format(data, {
       parser: "babel"
     });
@@ -176,7 +164,13 @@ class addFolder extends WeElement {
   handleFilePath(path, length) {
     return (path = path.substring(0, path.length - length));
   }
+
+  omiSnippets() {
+    window.open(
+      "https://marketplace.visualstudio.com/items?itemName=Wscats.omi-snippets"
+    );
+  }
 }
 
-addFolder.css = `*{margin:0;padding:0}#container{display:flex}#container div{background-color:#58bc58;color:white;flex:1;text-align:center;height:50px;line-height:50px;border:1px solid #666666}input{display:none}`;
+addFolder.css = `.app-omil{margin-top:20px}.weui-btn:after{content:" ";width:200%;height:200%;position:absolute;top:0;left:0;-webkit-transform:scale(0.5);transform:scale(0.5);-webkit-transform-origin:0 0;transform-origin:0 0;box-sizing:border-box;border-radius:10px}.weui-btn{position:relative;display:block;margin-left:auto;margin-right:auto;padding-left:14px;padding-right:14px;box-sizing:border-box;font-size:18px;text-align:center;text-decoration:none;color:#FFFFFF;line-height:2.55555556;border-radius:3px;-webkit-tap-highlight-color:transparent;overflow:hidden;border-width:0;width:100%;border-width:0;outline:0;-webkit-appearance:none}button{background-color:#58bc58;cursor:pointer}input{display:none}`;
 define("add-folder", addFolder);

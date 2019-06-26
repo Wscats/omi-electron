@@ -1,0 +1,65 @@
+<template name="app-omi">
+    <div class="app">
+        <header class="app-header">
+            <img src="./src/components/AppOmi/logo.svg" onClick={this.clickHandler} class="app-logo" alt="logo" />
+            <h1 class="app-title">{this.bool?'Welcome to Omie':'欢迎使用Omie'}</h1>
+        </header>
+        <add-folder />
+        <app-intro />
+    </div>
+</template>
+<script type="module">
+    require('../AddFolder/AddFolder.js')
+    require('../AppIntro/AppIntro.js')
+    export default class {
+        bool = !0
+        clickHandler = () => {
+            this.bool = !this.bool
+            this.update()
+            window.open('https://marketplace.visualstudio.com/items?itemName=Wscats.omi-snippets')
+        }
+        install() {
+            setInterval(() => {
+                this.bool = !this.bool
+                this.update()
+            }, 2500);
+        }
+    }
+</script>
+<style lang="scss">
+    $bg-color: #222;
+
+    .app {
+        text-align: center;
+    }
+
+    .app-logo {
+        animation: app-logo-spin infinite 20s linear;
+        height: 80px;
+    }
+
+    .app-header {
+        background-color: $bg-color;
+        height: 150px;
+        padding: 20px;
+        color: white;
+    }
+
+    .app-title {
+        font-size: 1.5em;
+    }
+
+    .app-logo {
+        cursor: pointer;
+    }
+
+    @keyframes app-logo-spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
