@@ -1,6 +1,6 @@
 {
-  "name": "Omie",
-  "version": "1.0.1",
+  "name": "omie",
+  "version": "1.0.4",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
@@ -9,15 +9,17 @@
     "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=assets/app-icon/win/app.ico",
     "package:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --out=out"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/Wscats/omi-electron",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "electron",
+    "yao",
+    "omi",
+    "omie",
+    "omil",
+    "omi-snippets",
+    "omi-electron"
   ],
-  "author": "GitHub",
+  "author": "Eno Yao",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^5.0.2"

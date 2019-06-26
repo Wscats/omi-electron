@@ -1,4 +1,31 @@
-# electron-quick-start
+<div align="center">
+<p><img width="150" src="assets/png/logo.png"></p>
+
+<h1>Omi electron</h1>
+
+<p>
+  <strong>Build cross platform desktop apps with Omi.js and Electron.js</strong>
+  <br /><br />
+  <strong>基于Omi.js和Electron.js构建跨平台的桌面应用</strong>,
+  <a href="https://wscats.github.io/Angular-news/news/indexTest.html#/index/list">Live Demo</a>
+</p>
+
+<p>
+  <sub>Made with ❤︎ by
+    <a href="https://github.com/Wscats">Eno Yao</a>
+  </sub>
+</p>
+
+<p>
+<a href="https://github.com/Wscats/news"><img src="https://wscats.github.io/Angular-news/news/image/npm.svg" alt="NPM version"></a>
+<a href="https://github.com/Wscats/news"><img src="https://wscats.github.io/Angular-news/news/image/mit.svg" alt="MIT License"></a>
+<a href="https://github.com/Wscats/news"><img src="https://wscats.github.io/Angular-news/news/image/linux.svg" alt="Linux Build"></a>
+<a href="https://github.com/Wscats/news"><img src="https://wscats.github.io/Angular-news/news/image/windows.svg" alt="Window Build"/></a>
+</p>
+
+</div>
+
+<img src="assets/png/screenshot.png" />
 
 **Clone and run for a quick way to see Electron in action.**
 
@@ -20,9 +47,9 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/electron/electron-quick-start
+git clone https://github.com/Wscats/omi-electron
 # Go into the repository
-cd electron-quick-start
+cd omi-electron
 # Install dependencies
 npm install
 # Run the app
