@@ -7,9 +7,9 @@
   <strong>Build cross platform desktop apps with Omi.js and Electron.js</strong>
   <br /><br />
   <strong>基于Omi.js和Electron.js构建跨平台的桌面应用</strong>,
-  <a href="https://github.com/Wscats/omi-electron/releases/tag/1.3">Download Win Version Zip</a>
+  <!-- <a href="https://github.com/Wscats/omi-electron/releases/tag/1.3">Download Win Version Zip</a>
   or
-  <a href="https://github.com/Wscats/omi-electron/releases/tag/1.2">Download Mac Version Zip</a>
+  <a href="https://github.com/Wscats/omi-electron/releases/tag/1.2">Download Mac Version Zip</a> -->
 </p>
 
 <p>
