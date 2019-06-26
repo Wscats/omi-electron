@@ -1,7 +1,7 @@
 <div align="center">
 <p><img width="150" src="assets/png/logo.png"></p>
 
-<h1>Omi electron</h1>
+<h1>Omi Electron</h1>
 
 <p>
   <strong>Build cross platform desktop apps with Omi.js and Electron.js</strong>
