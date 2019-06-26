@@ -6,6 +6,8 @@ const chokidar = require("chokidar");
 
 const prettier = require("prettier");
 
+const os = require("os");
+
 class addFolder extends WeElement {
   constructor(...args) {
     super(...args);
@@ -48,11 +50,14 @@ class addFolder extends WeElement {
           title: "Listen Folder/监听文件夹"
         }
       ],
-      title: "Install Omi Snippets!"
+      title: "Install Omi Snippets!",
+      index: 0
     };
   }
 
   handle(index) {
+    this.data.index = index;
+
     switch (index) {
       case 0:
         this.input.click();
@@ -107,14 +112,18 @@ class addFolder extends WeElement {
   convertFile({ event, path, details }) {
     const _self = this;
 
-    const type = details.type;
+    if (os.platform() === "win32") {
+      path = details.watchedPath;
+    }
+
+    const type = details.type || "file";
     const suffix = this.fileType(path);
-    const source = this.readFileContext(path);
 
     if (type === "file") {
       switch (suffix) {
         case ".omi":
         case ".eno":
+          const source = this.readFileContext(path);
           omil({
             type: "extension",
             options: null,
@@ -145,10 +154,14 @@ class addFolder extends WeElement {
   }
 
   getDirectory(e) {
-    const path = e.target.files[0].path;
-    this.watchFolder({
-      path
-    });
+    if (e.target.files[0]) {
+      const path = e.target.files[0].path;
+      this.watchFolder({
+        path
+      });
+      this.data.lists[this.data.index].title = "Listen success!/监听成功！";
+      this.update();
+    }
   }
 
   writeJsFileContext(path, data) {

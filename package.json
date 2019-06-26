@@ -17,12 +17,13 @@
     "omie",
     "omil",
     "omi-snippets",
-    "omi-electron"
+    "omi-electron",
+    "eno"
   ],
   "author": "Eno Yao",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^5.0.2"
+    "electron": "^5.0.5"
   },
   "dependencies": {
     "omi": "^6.6.5",
