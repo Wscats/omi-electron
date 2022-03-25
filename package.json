@@ -23,7 +23,7 @@
   "author": "Eno Yao",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^7.2.4"
+    "electron": "^13.6.6"
   },
   "dependencies": {
     "omi": "^6.6.5",
