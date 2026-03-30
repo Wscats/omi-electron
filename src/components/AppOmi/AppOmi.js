@@ -1,3 +1,5 @@
+'use strict';
+
 require("../AddFolder/AddFolder.js");
 
 require("../AppIntro/AppIntro.js");

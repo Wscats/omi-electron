@@ -1,3 +1,5 @@
+'use strict';
+
 class appIntro extends WeElement {
   render() {
     return h(
